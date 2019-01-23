@@ -13,25 +13,33 @@
 	<body>
 		<div id="conteiner">
 			<header class="col-4 col-sm-6 col-md-9 col-lg-12" >
-				Losowanie Mistrzostw Świata 2018 / Ligi Mistrzów 2018/2019
+				Losowanie Mistrzostw Świata 2018
 			</header>
 			<section id="choice">
-				<div id="status">Podaj pierwsza druzyne:</div>
+				<div id="status">
+					<div id='description'>
+						Wprowadź drużynę:
+					</div>
+					<div id="counter">
+						0/32
+					</div>
+					<div style="clear: both"></div>
+				</div>
 				<br>
-				<div>
+				<div id="data">
 					<input type="text" id="field"/>
 					<button>Wprowadź</button>
+					<div id="valid" class="validinfo"><br/></div>
 				</div>
 				<br/>
-				<br/>
-				<div id="list">
+				<div class="row-fluid">
+					<div id="list">
+					</div>
 				</div>
 				<div id="toDraw">
-				</div>
-				<br/>
-				<div id="wykaz">
 
 				</div>
+				<br/>
 			</section>
 
 			<section class="grid">
@@ -101,10 +109,10 @@
 							<div class="col-md-6 col-lg-3">			 								 
 																<div class="grupa">Grupa G<br>
 																	<br>
-																	<div id="c1">1.</div>
-																	<div id="c2">2.</div>
-																	<div id="c3">3.</div>
-																	<div id="c4">4.</div>
+																	<div id="g1">1.</div>
+																	<div id="g2">2.</div>
+																	<div id="g3">3.</div>
+																	<div id="g4">4.</div>
 																</div>
 							</div>
 		
@@ -119,13 +127,7 @@
 							</div>
 					</div>	   
 			</section>
-
-
 		</div>
 		<script src="js.js"></script>
 	</body>
-
-	
-	
-	
 </html>

@@ -44,3 +44,34 @@ width: 100%;
 height: auto;
 background-color: #fff;
 }
+
+.validinfo{
+color: red;
+font-size: 14px;
+}
+
+#description{
+    float: left;
+}
+
+#counter{
+    float: left;
+    padding: 0 25px;
+}
+
+
+.teamStyle{
+    padding: 10px;
+    display: inline-block;
+    width: 200px;
+}
+
+#toDraw{
+    padding: 20px 10px 10px 0px;
+}
+
+#list{
+    padding: 0px;
+    width: 100%;
+    height: auto;
+}
