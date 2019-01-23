@@ -53,7 +53,7 @@
 							list.appendChild(div);
 							div.setAttribute("id", team);
 							div.classList.add("teamStyle");
-							div.innerHTML = team + "<button onclick=\"removing("+team+")\">Remove</button>"
+							div.innerHTML = team + " " + "<button onclick=\"removing("+team+")\">Remove</button>"
 							field.value = "";
 							valid.innerHTML = "<br/>";
 						}
@@ -78,9 +78,12 @@
 
 			function draw()
 			{
+				var index = 0;
 				document.getElementById("status").innerHTML = "Dodano wszystkie drużyny! ";
 				document.getElementById("data").remove();
-				document.getElementById("list").innerHTML = teams;
+				document.getElementById("list").innerHTML = teams.join(" - ");
+				
+		//		console.log(ourTable.join(" - "))
 				document.getElementById("toDraw").innerHTML = "<input type=\"submit\" id=\"przycisklosuj\" value=\"Losuj\" onclick=\"wys()\"/>";
 			}
 
