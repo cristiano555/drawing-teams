@@ -44,3 +44,17 @@ width: 100%;
 height: auto;
 background-color: #fff;
 }
+
+.validinfo{
+color: red;
+font-size: 14px;
+}
+
+#description{
+    float: left;
+}
+
+#counter{
+    float: left;
+    padding: 0 25px;
+}

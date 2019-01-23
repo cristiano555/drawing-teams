@@ -1,53 +1,65 @@
 	
 		var teams = [ ];
-        var nr = 0;
+		var nr = 0;
+		var counter = document.getElementById("counter");
 		var button = document.querySelector("button");
 	 
 			function add()
 			{
-               
                 var team = document.getElementById("field").value;
-                teams[nr] = team;
 				nr++
-				console.log(teams);
-			if(nr>=8)
+				counter.innerHTML = nr + "/32";
+				if(nr>=32)
 				{
 					createElement(team);
 					draw();
 				}
 				else{
 					createElement(team);
-					field.value = "";
 				}
-				
 			}
 
 			button.addEventListener("click", add);
 
 			function createElement(team)
 			{		
+				var exist = false;
 				var valid = document.getElementById("valid");
+				for( var i = 0; i < teams.length; i++){ 
+					if (teams[i] == field.value) {
+					exist = true;
+					nr--;
+					counter.innerHTML = nr + "/32";
+					}
+				}
+
 				if(!field.value.trim()) {
 						valid.innerHTML = "Wprowadzona nazwa nie zawiera znakow!<br/>";
+						nr--;
+						counter.innerHTML = nr + "/32";
+						field.value = "";
 				}else if(!isNaN(field.value)){
 						valid.innerHTML = "Wprowadzona nazwa nie może być liczbą<br/>";
-				}else if(typeof teams[0] == 'undefined'){
-							for( var i = 0; i < teams.length; i++){ 
-							if ( teams[i] == field.value) {
-							valid.innerHTML = "Wprowadzona nazwa już istnieje<br/>";
-							}
-							}    
+						nr--;
+						counter.innerHTML = nr + "/32";
+						field.value = "";
 				}else{
-					let div = document.createElement("div");
-					let list = document.getElementById("list");
-					list.appendChild(div);
-					div.setAttribute("id", team);
-					div.classList.add("teamStyle");
-					div.innerHTML = team + "<button onclick=\"removing("+team+")\">Remove</button>"
+						if(exist==true){
+							valid.innerHTML = "Wprowadzona nazwa już istnieje<br/>";
+						}else{
+							teams.push(team);
+							let div = document.createElement("div");
+							let list = document.getElementById("list");
+							list.appendChild(div);
+							div.setAttribute("id", team);
+							div.classList.add("teamStyle");
+							div.innerHTML = team + "<button onclick=\"removing("+team+")\">Remove</button>"
+							field.value = "";
+							valid.innerHTML = "<br/>";
+						}
 				}		
-			
 			}
-			
+
 			function removing(team){
 				document.getElementById(team);
 				let list = document.getElementById("list");
@@ -60,13 +72,14 @@
 					}
 				}
 				nr--;
+				counter.innerHTML = nr + "/32";
 				console.log(nr);
 			}
 
 			function draw()
 			{
 				document.getElementById("status").innerHTML = "Dodano wszystkie drużyny! ";
-				document.getElementById("field").remove();
+				document.getElementById("data").remove();
 				document.getElementById("list").innerHTML = teams;
 				document.getElementById("toDraw").innerHTML = "<input type=\"submit\" id=\"przycisklosuj\" value=\"Losuj\" onclick=\"wys()\"/>";
 			}
@@ -126,5 +139,3 @@
 				document.getElementById("h4").innerHTML = "4. " + teams[31];
 
 			}
-
-		
